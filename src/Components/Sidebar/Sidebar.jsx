@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './sidebar.css'
 import { assets } from '../../Assests/assets'
+import { Context } from '../../context/context'
 const Sidebar = () => {
 
     const [extented,setExtented] = React.useState(false)
+    const {onSent,prevPrompts,setRecentPropmt} = useContext(Context);
+
+    const loadPrompt = async (prompt) => {
+        setRecentPropmt(prompt)
+       await onSent(prompt)
+    }
     // const extendSideBar = ()=>{
     //     if(extented===true){
     //         setExtented(false)
@@ -25,10 +32,16 @@ const Sidebar = () => {
             {extented?
             <div className="recent">
                 <p className="recent-title">Recent</p>
-                <div className="recent-entry">
-                    <img src={assets.message_icon} alt="" />
-                    <div>What is react....</div>
-                </div>
+                {
+                    prevPrompts.map((item,i)=>{
+                        return(
+                            <div className="recent-entry" onClick={()=>loadPrompt(ClipboardItem)}>
+                                <img src={assets.message_icon} alt="" />
+                                <div> {item.slice(0,18)}...</div>
+                            </div> 
+                        )
+                    })
+                }
             </div>:null}
         </div>
         <div className='bottom'>

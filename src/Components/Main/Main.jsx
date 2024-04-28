@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './main.css'
 import { assets } from '../../Assests/assets'
+import { Context } from '../../context/context'
 const Main = () => {
+
+    const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useContext(Context)
+
   return (
     <div className='main'>
         <div className="nav">
-            <p>Use Me</p>
-            <img src={assets.user_icon} alt="" />
+            <p className='greet2'><span>Use Me ( I Will Satisfy You )</span></p>
+            <img src='jasi1.jpg' alt="" height='40px' />
         </div>
         <div className="main-container">
-            <div className="greet">
-                <p><span>Hello, Dev.</span></p>
-                <p>How can I help you Today</p>
-            </div>
-            <div className="cards">
+
+           {
+            !showResult?<>
+                <div className="greet">
+                    <p><span>Hello, Developer.</span></p>
+                    <section><p>How can I help you Today..?</p></section>
+                </div>
+            {/* <div className="cards">
                 <div className="carrd">
                     <div>Suggest Beautiful places to see on an upcoming road trip.</div>
                     <img src={assets.compass_icon} alt="" />
@@ -30,15 +37,35 @@ const Main = () => {
                     <div>Improve the readability of the following code.</div>
                     <img src={assets.code_icon} alt="" />
                 </div>
+            </div> */}
+            </>:<div className='result '>
+                <div className="result-title">
+                    <img src='jasi1.jpg' height='40px' alt="" />
+                    <b>{recentPrompt}</b>
+                </div>
+                <div className="result-data">
+                    <img src={assets.gemini_icon} alt="" />
+                    {
+                        loading?
+                        <div className='loader'>
+                            <hr />
+                            <hr />
+                            <hr />
+                        </div>
+                        :<div dangerouslySetInnerHTML={{__html:resultData}}></div>
+                    }
+                </div>
             </div>
+           } 
+            
         </div>
 
         <div className="main-bottom">
             <div className="search-box">
-                <input type="text" placeholder='Enter a prompt here'/>
+                <input type="text" placeholder='Enter a prompt here' onChange={(e)=>{setInput(e.target.value)}} value={input}/>
                 <img src={assets.gallery_icon} alt="" />
                 <img src={assets.mic_icon} alt="" />
-                <img src={assets.send_icon} alt="" />
+                <img src={assets.send_icon} alt="" onClick={()=>{onSent()}}/>
             </div>
             <p className="bottom-info">
                 This Application display inaccurate info, including about people, so double-check its responses. Your privacy and this App.
