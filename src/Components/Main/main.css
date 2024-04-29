@@ -33,7 +33,7 @@
 
 }
 .main .greet span{
-    background: -webkit-linear-gradient(16deg,#4b90ff,#ff5546);
+    background: -webkit-linear-gradient(16deg,hsl(218, 21%, 43%),#06daff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -42,7 +42,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+/* 
 .main .cards{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
@@ -76,20 +76,17 @@
 
 .main .carrd:hover{
     background-color: #dfe4ea;
-} 
+}  */
 .main-bottom{
     position: absolute;
     bottom: 0;
-    width: 100%;
-    max-width: 900px;
+    width: 90%;
+    /* max-width: 900px; */
     padding: 0px 20px;
-    margin: auto;
-    margin-left: 18%;
+    margin: 0px 5%;
 }
 
-.main-bottom p{
-    color: skyblue;
-}
+
 .search-box{
     display: flex;
     align-items: center;
@@ -125,6 +122,7 @@
     margin: 15px auto;
     text-align: center;
     font-weight: 300;
+    color: #052262;
 }
 .result{
     padding: 0px 5px;
@@ -141,6 +139,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+.result-title b::first-letter{
+    color:red;
+    text-transform: uppercase;
 }
 
 .result img{
@@ -171,6 +173,10 @@
     animation: loader 3s infinite linear;
 }
 
+.greet section p{
+    color: #c6c689;
+}
+
 
 @keyframes loader{
     0%{
@@ -186,3 +192,41 @@
     font-weight:300 ;
     line-height: 1.5;
 }
+
+
+@media (max-width:600px){
+    .main-bottom input{
+        flex: none;
+        width: 150px;
+    }
+    .main-bottom img{
+        width: 20px;
+    }
+    .search-box div{
+       gap: 5px;  
+    }
+}
+
+@media (max-width:424px){
+    .main{
+        background-color: rgb(214, 234, 239);
+    }
+    .main .nav{
+        background-color: #fff;
+    }
+    .greet section p{
+        color: rgb(182, 72, 189);
+    }
+    .main .greet span{
+        background: -webkit-linear-gradient(16deg,hsl(18, 94%, 44%),#0c4bd3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .main .greet p span{
+        font-size: 56px;
+    }
+    .main .greet section p{
+        font-size: 29px;
+    }
+}
+

@@ -9,7 +9,7 @@ const Main = () => {
   return (
     <div className='main'>
         <div className="nav">
-            <p className='greet2'><span>Use Me ( I Will Satisfy You )</span></p>
+            <p className='greet2'><span>Ask jasi_M</span></p>
             <img src='jasi1.jpg' alt="" height='40px' />
         </div>
         <div className="main-container">
@@ -18,7 +18,7 @@ const Main = () => {
             !showResult?<>
                 <div className="greet">
                     <p><span>Hello, Developer.</span></p>
-                    <section><p>How can I help you Today..?</p></section>
+                    <section><p>How can I help you Today. . .?</p></section>
                 </div>
             {/* <div className="cards">
                 <div className="carrd">
@@ -52,7 +52,7 @@ const Main = () => {
                             <hr />
                             <hr />
                         </div>
-                        :<div dangerouslySetInnerHTML={{__html:resultData}}></div>
+                        :<p dangerouslySetInnerHTML={{__html:resultData}}></p>
                     }
                 </div>
             </div>
@@ -62,10 +62,12 @@ const Main = () => {
 
         <div className="main-bottom">
             <div className="search-box">
-                <input type="text" placeholder='Enter a prompt here' onChange={(e)=>{setInput(e.target.value)}} value={input}/>
-                <img src={assets.gallery_icon} alt="" />
-                <img src={assets.mic_icon} alt="" />
-                <img src={assets.send_icon} alt="" onClick={()=>{onSent()}}/>
+                <input type="text" placeholder='Ask  jasi_M. . . !' onChange={(e)=>{setInput(e.target.value)}} value={input}/>
+                <div>
+                    <img src={assets.gallery_icon} alt="" />
+                    <img src={assets.mic_icon} alt="" />
+                    <img className='sendlogo' src={assets.send_icon} alt="" onClick={()=>{onSent()}}/>
+                </div>
             </div>
             <p className="bottom-info">
                 This Application display inaccurate info, including about people, so double-check its responses. Your privacy and this App.
